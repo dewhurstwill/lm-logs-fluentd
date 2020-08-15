@@ -1,13 +1,10 @@
-
 # lm-logs-fluentd (beta)
 This output plugin sends Fluentd records to the configured LogicMonitor account.
 
 ## Prerequisites
 
-Install with gem:       `gem install lm-logs-fluentd`
-For deb packages:       `td-agent-gem install lm-logs-fluentd`
-
-Alternative: Add `out_lm.rb` to your Fluentd plugins directory.
+Install with gem:           `gem install lm-logs-fluentd`
+Install with td-agent:      `td-agent-gem install lm-logs-fluentd`
 
 ## Configure the output plugin
 
@@ -27,10 +24,9 @@ Create a custom `fluent.conf` or edit the existing one to specify which logs sho
 </match>
 ```
 
+Click [here](https://github.com/logicmonitor/lm-logs-fluentd/tree/master/Examples) for examples.
+
 ### Request example
-
-Sending:
-
 `curl -X POST -d 'json={"message":"hello LogicMonitor from fluentd", "event_key":"lm_property_value"}' http://localhost:8888/lm.test`
 
 Returns the event:
@@ -58,4 +54,3 @@ Returns the event:
 | `access_key` | LM API Token access key. |
 | `flush_interval` | Defines the time in seconds to wait before sending batches of logs to LogicMonitor. Default is `60s`. |
 | `debug` | When `true`, logs more information to the fluentd console. |
-
